@@ -1,0 +1,74 @@
+-- --------------------------------------------------------
+-- 主机:                           127.0.0.1
+-- 服务器版本:                        10.3.13-MariaDB - mariadb.org binary distribution
+-- 服务器操作系统:                      Win64
+-- HeidiSQL 版本:                  9.5.0.5196
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+-- 导出 db_database10 的数据库结构
+DROP DATABASE IF EXISTS `db_database10`;
+CREATE DATABASE IF NOT EXISTS `db_database10` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `db_database10`;
+
+-- 导出  过程 db_database10.findAllBook 结构
+DROP PROCEDURE IF EXISTS `findAllBook`;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `findAllBook`()
+BEGIN
+  SELECT * FROM tb_books order by id desc;
+END//
+DELIMITER ;
+
+-- 导出  表 db_database10.tb_applicant 结构
+DROP TABLE IF EXISTS `tb_applicant`;
+CREATE TABLE IF NOT EXISTS `tb_applicant` (
+  `APPLICANT_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `APPLICANT_EMAIL` varchar(50) NOT NULL,
+  `APPLICANT_PWD` varchar(50) NOT NULL,
+  `APPLICANT_REGISTDATE` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
+  PRIMARY KEY (`APPLICANT_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+
+-- 正在导出表  db_database10.tb_applicant 的数据：~6 rows (大约)
+DELETE FROM `tb_applicant`;
+/*!40000 ALTER TABLE `tb_applicant` DISABLE KEYS */;
+INSERT INTO `tb_applicant` (`APPLICANT_ID`, `APPLICANT_EMAIL`, `APPLICANT_PWD`, `APPLICANT_REGISTDATE`) VALUES
+	(14, 'werwer@qq.com', '6666', '2019-05-24 23:44:33'),
+	(15, '65456', '45656', '2019-05-25 23:09:28'),
+	(16, 'sfjgwekj', '9999', '2019-05-26 12:04:38'),
+	(17, '11111', '11111', '2019-05-27 19:27:59'),
+	(18, 'wqdwqdw@qq.com', '2222', '2019-05-27 22:34:19'),
+	(19, '2323@qq.com', '123', '2019-05-28 10:39:08');
+/*!40000 ALTER TABLE `tb_applicant` ENABLE KEYS */;
+
+-- 导出  表 db_database10.tb_books 结构
+DROP TABLE IF EXISTS `tb_books`;
+CREATE TABLE IF NOT EXISTS `tb_books` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `price` double NOT NULL,
+  `bookCount` int(10) unsigned NOT NULL,
+  `author` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+
+-- 正在导出表  db_database10.tb_books 的数据：4 rows
+DELETE FROM `tb_books`;
+/*!40000 ALTER TABLE `tb_books` DISABLE KEYS */;
+INSERT INTO `tb_books` (`id`, `name`, `price`, `bookCount`, `author`) VALUES
+	(24, 'eee', 44, 34, '3'),
+	(21, '异界最强反派系统', 0.7, 222, '张聚鑫'),
+	(22, '西红柿', 212, 14, '张聚鑫'),
+	(23, '异界最强反派系统', 0.7, 4444, '张聚鑫');
+/*!40000 ALTER TABLE `tb_books` ENABLE KEYS */;
+
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

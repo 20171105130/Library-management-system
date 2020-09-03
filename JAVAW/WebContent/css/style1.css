@@ -1,0 +1,15 @@
+@charset "UTF-8";
+body{
+	font-famliy: "Helvetica", "Arial",sans-serif,color: #333;
+}
+
+a {
+	color: #e81c4f;
+}
+.header { 
+	background-image: url("../images/1111.jpg"); 
+	background-position: center top; 
+	background-repeat: no-repeat;  
+	padding: 15vw 3em; 
+	text-align: center; 
+}
